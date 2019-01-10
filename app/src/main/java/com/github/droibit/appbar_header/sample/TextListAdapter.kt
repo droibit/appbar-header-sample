@@ -12,7 +12,7 @@ class TextListAdapter(context: Context) : RecyclerView.Adapter<ViewHolder>() {
 
   private val inflater: LayoutInflater = LayoutInflater.from(context)
 
-  private val texts = (0 until 30).map { "Text $it" }
+  private val texts = mutableListOf<String>()
 
   override fun getItemCount(): Int = texts.size
 
@@ -32,12 +32,18 @@ class TextListAdapter(context: Context) : RecyclerView.Adapter<ViewHolder>() {
     holder.bind(texts[position])
   }
 
+  fun replace(newTexts: List<String>) {
+    texts.clear()
+    texts.addAll(newTexts)
+    notifyDataSetChanged()
+  }
+
   class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val textView = itemView.findViewById<TextView>(android.R.id.text1)
 
     fun bind(text: String) {
-      textView.setText(text)
+      textView.text = text
     }
   }
 }
