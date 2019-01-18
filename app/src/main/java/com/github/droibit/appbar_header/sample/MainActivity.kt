@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity() {
     if (savedInstanceState != null) {
       appBarLayout.doOnLayout {
         val offset = savedInstanceState.getInt(EXTRA_KEY_APPBAR_Y_OFFSET)
-        AppBarLayoutBehavior.from(it).topAndBottomOffset = offset
+        AppBarLayoutBehavior.from(it)
+            .topAndBottomOffset = offset
       }
     }
 
