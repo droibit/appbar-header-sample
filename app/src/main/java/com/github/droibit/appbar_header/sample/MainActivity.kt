@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     Handler().postDelayed({
       (list.adapter as TextListAdapter).replace(
-          (0 until 5).map { "Text $it" }
+          (0 until 100).map { "Text $it" }
       )
     }, 250L)
   }
